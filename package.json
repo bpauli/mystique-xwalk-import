@@ -8,9 +8,9 @@
     "import:build:prod": "cd actions/import && rimraf dist/ && webpack --mode=production",
     "import:deploy": "node bin/deploy.mjs actions/import/dist/index.js.zip",
     "import:serve": "npm-run-all import:build --parallel import:serve:*",
+    "import:test": "cd actions/import && mocha --spec test/**/*.test.mjs --require test/setup-env.esm.mjs --timeout 10000 --reporter-option maxDiffSize=0",
     "import:serve:server": "nodemon -r dotenv/config --inspect actions/import/dist/index.js --watch actions/import/dist",
-    "import:serve:build": "cd actions/import && webpack ./src/dev-server.js --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "import:serve:build": "cd actions/import && webpack ./src/dev-server.js --watch"
   },
   "keywords": [],
   "author": "",

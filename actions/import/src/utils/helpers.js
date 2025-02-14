@@ -1,5 +1,13 @@
 const jwtAuth = require('./jwtAuth.js');
 
+
+/**
+ * The jcr.xml import of the Sling POST servlet requires a root node to be renamed. It doesn't support the :name parameter.
+ * @todo: Create Sling issue to support :name parameter in jcr.xml import.
+ * @param {*} xmlString 
+ * @param {*} nodeName 
+ * @returns 
+ */
 function replaceJcrRoot(xmlString, nodeName) {
   const replacedOpeningTag = xmlString.replace(
     /<jcr:root([^>]*)>/,

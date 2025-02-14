@@ -30,7 +30,11 @@ async function importXmlContent(xmlString, params) {
     throw new Error(`Import failed (${response.status}): ${errorText}`);
   }
 
-  return response.text();
+  const domain = new URL(params.aemUrl).origin;
+  const pathWithoutProtocol = params.aemUrl.replace(/^https?:\/\//, '');
+  const ueUrl = `${domain}/ui#/@sitesinternal/aem/universal-editor/canvas/${pathWithoutProtocol}/${nodeName}.html`;
+
+  return { ueUrl };
 }
 
 async function postMethod(params) {
