@@ -1,0 +1,36 @@
+{
+  "name": "sites-mystique-xwalk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "import:build": "cd actions/import && rimraf dist/ && webpack",
+    "import:build:prod": "cd actions/import && rimraf dist/ && webpack --mode=production",
+    "import:deploy": "node bin/deploy.mjs actions/import/dist/index.js.zip",
+    "import:serve": "npm-run-all import:build --parallel import:serve:*",
+    "import:serve:server": "nodemon -r dotenv/config --inspect actions/import/dist/index.js --watch actions/import/dist",
+    "import:serve:build": "cd actions/import && webpack ./src/dev-server.js --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/core": "^7.26.8",
+    "@babel/eslint-parser": "^7.26.8",
+    "dotenv": "^16.4.7",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-mocha": "^10.5.0",
+    "nodemon": "^3.1.9",
+    "npm-run-all": "^4.1.5",
+    "openwhisk": "3.21.7",
+    "rimraf": "^6.0.1",
+    "webpack": "^5.97.1",
+    "webpack-bundle-analyzer": "^4.10.2",
+    "webpack-cli": "^6.0.1",
+    "zip-webpack-plugin": "^4.0.3"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "import-mystique-variant",
+  "version": "0.0.1",
+  "dependencies": {
+    "@adobe/helix-md2jcr": "^1.0.12",
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "form-data": "^4.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "terser-webpack-plugin": "^5.3.11",
+    "webpack": "^5.97.1",
+    "zip-webpack-plugin": "^4.0.3"
+  }
+}
